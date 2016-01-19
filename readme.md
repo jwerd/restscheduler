@@ -1,27 +1,42 @@
-## Laravel PHP Framework
+# REST Scheduler API
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+I developed this on the spec from WhenIWork.  Some of it is implemented, but I thought this would be a good point to start getting some code up for people to review and get a feel for my coding style, etc.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Init
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Installation instructions soon, as well as usage instrucitons.
 
-## Official Documentation
+## Requirements
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+The API must follow REST specification:
 
-## Contributing
+- POST should be used to create
+- GET should be used to read
+- PUT should be used to update (and optionally to create)
+- DELETE should be used to delete
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Additional methods can be used for expanded functionality.
 
-## Security Vulnerabilities
+The API should include the following roles:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- employee (read)
+- manager (write)
 
-### License
+The `employee` will have much more limited access than a `manager`. The specifics of what each role should be able to do is listed below in [User Stories](#user-stories).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## User stories
+
+**Please note that this not intended to be a CRUD application.** Only the functionality described by the user stories should be exposed via the API.
+
+** Each item completed/supported will have a strike through it.
+
+- [ ] ~~As an employee, I want to know when I am working, by being able to see all of the shifts assigned to me.~~
+- [ ] As an employee, I want to know who I am working with, by being able to see the employees that are working during the same time period as me.
+- [ ] As an employee, I want to know how much I worked, by being able to get a summary of hours worked for each week.
+- [ ] As an employee, I want to be able to contact my managers, by seeing manager contact information for my shifts.
+
+- [ ] ~~As a manager, I want to schedule my employees, by creating shifts for any employee.~~
+- [ ] As a manager, I want to see the schedule, by listing shifts within a specific time period.
+- [ ] ~~As a manager, I want to be able to change a shift, by updating the time details.~~
+- [ ] ~~As a manager, I want to be able to assign a shift, by changing the employee that will work a shift.~~
+- [ ] As a manager, I want to contact an employee, by seeing employee details.
