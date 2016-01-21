@@ -11,10 +11,8 @@ use App\Http\Controllers\Controller;
 use App\Shift;
 use Auth;
 
-class ShiftController extends Controller
+class ShiftController extends ApiController
 {
-    protected $code;
-
    /**
     * Display a listing of the resource.
     *
@@ -103,30 +101,5 @@ class ShiftController extends Controller
            }
        } else // For readability sake, even though we will always return
             return $this->setStatusCode(403)->setError('Unauthorized Access');
-   }
-
-   // If this was a bigger project, we could move all of the below logic into their own container files, so they can be reused
-   // Maybe something when I clean this up later
-   private function setSuccess($message) {
-       $arr = [
-           'message' => $message,
-           'code'    => $this->code,
-       ];
-       return response()->json($arr, $this->code);
-   }
-
-   private function setError($message) {
-       $arr = [
-           'errors' => [
-               'messgae' => $message,
-               'code'    => $this->code,
-           ]
-       ];
-       return response()->json($arr, $this->code);
-   }
-
-   private function setStatusCode($code) {
-       $this->code = $code;
-       return $this;
    }
 }
