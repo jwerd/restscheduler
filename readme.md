@@ -4,7 +4,14 @@ I developed this on the spec from WhenIWork.  Some of it is implemented, but I t
 
 ## Init
 
-Installation instructions soon, as well as usage instrucitons.
+- git clone https://github.com/jwerd/restscheduler.git my-project
+- run "composer install" from within the working directory
+- copy ".env.example" to ".env" and set your database settings accordingly (we use mysql, by default)
+- run "php artisan migrate" to migrate your tables
+- run "php artisan db:seed" to set up some seed data to test with (optional)
+
+## API Usage
+Coming soon.
 
 ## Requirements
 
