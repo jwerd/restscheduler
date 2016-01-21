@@ -24,8 +24,10 @@ class ShiftController extends ApiController
        // Employee can only see his own shifts
        // Manager can see all shifts created by them
        $lookup_type = ($auth->role ==  'employee') ? 'byEmployee' : 'byManager';
+       // Employee's see manager contact info, manager's see employee contact info.
+       $with_type   = ($auth->role ==  'employee') ? 'manager' : 'employee';
 
-       $shifts = \App\Shift::{$lookup_type}()->get();
+       $shifts = \App\Shift::{$lookup_type}()->with($with_type)->get();
 
        if(empty($shifts)) {
            return $this->setStatusCode(404)->setError('User has no shifts');

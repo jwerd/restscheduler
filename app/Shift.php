@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+use App\User;
+
 class Shift extends Model
 {
     // Prevents Mass Assignment Expoloitation
@@ -30,7 +32,10 @@ class Shift extends Model
         return $query->where('manager_id', (int)Auth::user()->id);
     }
 
-    public function user() {
-        return $this->belongsTo('App\User');
+    public function employee() {
+        return $this->belongsTo('App\User', 'employee_id', 'id');
+    }
+    public function manager() {
+        return $this->belongsTo('App\User', 'manager_id', 'id');
     }
 }
