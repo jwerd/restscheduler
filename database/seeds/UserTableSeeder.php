@@ -38,6 +38,7 @@ class UserTableSeeder extends Seeder
 
         // Remove all old seed data
         DB::table('users')->delete();
+        DB::statement('ALTER TABLE users AUTO_INCREMENT = 1');
 
         // Create Fake users
         foreach($users as $key => $user) {
