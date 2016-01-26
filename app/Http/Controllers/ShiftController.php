@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Shift;
 use Auth;
 
@@ -35,6 +36,47 @@ class ShiftController extends ApiController
 
        return response()->json($shifts);
    }
+   /**
+    * Display a summary of current work week in hours and minutes
+    *
+    * @return Response
+    */
+   public function summary() {
+      if(Auth::user()->role == "employee") {
+            // Start Carbon instance
+            $dt = Carbon::now(); // current time
+
+            // Find start of week
+            $start = $dt->startOfWeek()->toDateTimeString();
+            $end   = $dt->endOfWeek()->toDateTimeString();
+
+            // Retrieve all shifts matching employee for current week
+            $shifts = \App\Shift::byEmployee()->where('start_time', '>=', $start)->where('end_time', '<=', $end)->get();
+
+            // Set defaults
+            $totalInHours = 0;
+            $totalInMinutes = 0;
+
+            // Iterate through current week and tally up totals.
+            foreach($shifts as $shift) {
+                $dtStart = Carbon::parse($shift->start_time);
+                $dtEnd   = Carbon::parse($shift->end_time);
+                // Find the difference
+                $totalInHours += $dtStart->diffInHours($dtEnd);
+                $totalInMinutes += $dtStart->diffInMinutes($dtEnd);
+            }
+
+            $stats = [
+                'summary' => [
+                    'in_hours'   => $totalInHours,
+                    'in_minutes' => $totalInMinutes,
+                ],
+            ];
+            return response()->json($stats);
+      } else // For readability sake, even though we will always return
+            return $this->setStatusCode(403)->setError('Only an Employee can see their summary');
+   }
+
    /**
     * Store a newly created resource in storage.
     *

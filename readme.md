@@ -38,10 +38,8 @@ The `employee` will have much more limited access than a `manager`. The specific
 ** Each item completed/supported will have a strike through it.
 
 - [ ] ~~As an employee, I want to know when I am working, by being able to see all of the shifts assigned to me.~~
-- [ ] As an employee, I want to know who I am working with, by being able to see the employees that are working during the same time period as me.
-- [ ] As an employee, I want to know how much I worked, by being able to get a summary of hours worked for each week.
+- [ ] ~~As an employee, I want to know how much I worked, by being able to get a summary of hours worked for each week.~~
 - [ ] ~~As an employee, I want to be able to contact my managers, by seeing manager contact information for my shifts.~~
-
 - [ ] ~~As a manager, I want to schedule my employees, by creating shifts for any employee.~~
 - [ ] As a manager, I want to see the schedule, by listing shifts within a specific time period.
 - [ ] ~~As a manager, I want to be able to change a shift, by updating the time details.~~

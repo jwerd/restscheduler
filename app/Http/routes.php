@@ -19,6 +19,7 @@ Route::get('/', function () {
 //Route::resource('shift', ['uses' => 'ShiftController', 'middleware' => 'simpleauth']);
 Route::get('shift', ['uses' => 'ShiftController@index', 'middleware' => 'simpleauth']);
 Route::post('shift', ['uses' => 'ShiftController@store', 'middleware' => 'simpleauth']);
+Route::get('shift/summary', ['uses' => 'ShiftController@summary', 'middleware' => 'simpleauth']);
 Route::put('shift/update/{id}', ['uses' => 'ShiftController@update', 'middleware' => 'simpleauth']);
 
 /*

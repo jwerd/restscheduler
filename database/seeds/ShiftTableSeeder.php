@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Shift;
 use Illuminate\Support\Facades\DB;
+
 class ShiftTableSeeder extends Seeder
 {
     /**
@@ -14,24 +15,24 @@ class ShiftTableSeeder extends Seeder
     {
         $schedule = [
             1 => [ // Regular day 9-5
-                'start_time' => '2016-01-18 09:00:00',
-                'end_time'   => '2016-01-18 15:00:00',
+                'start_time' => '2016-01-25 09:00:00',
+                'end_time'   => '2016-01-25 15:00:00',
             ],
             2 => [ // Regular day 9-5
-                'start_time' => '2016-01-19 09:00:00',
-                'end_time'   => '2016-01-19 15:00:00',
+                'start_time' => '2016-01-26 09:00:00',
+                'end_time'   => '2016-01-26 15:00:00',
             ],
             3 => [ // Regular day 9-5
-                'start_time' => '2016-01-20 09:00:00',
-                'end_time'   => '2016-01-20 15:00:00',
+                'start_time' => '2016-01-27 09:00:00',
+                'end_time'   => '2016-01-27 15:00:00',
             ],
             4 => [ // Short day (9-12)
-                'start_time' => '2016-01-21 09:00:00',
-                'end_time'   => '2016-01-21 12:00:00',
+                'start_time' => '2016-01-28 09:00:00',
+                'end_time'   => '2016-01-28 12:00:00',
             ],
             5 => [ // Regular day 9-5
-                'start_time' => '2016-01-22 09:00:00',
-                'end_time'   => '2016-01-22 15:00:00',
+                'start_time' => '2016-01-29 09:00:00',
+                'end_time'   => '2016-01-29 15:00:00',
             ],
         ];
 
