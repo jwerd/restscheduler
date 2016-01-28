@@ -11,7 +11,15 @@ I developed this on the spec from WhenIWork.  Some of it is implemented, but I t
 - run "php artisan db:seed" to set up some seed data to test with (optional)
 
 ## API Usage
-Coming soon.
+
+*all calls require basic authentication*
+
+| Endpoint   |  Description          |  Type |
+|----------|:-------------:|:-----|
+| /shift |  Lists all shifts assigned to current authenticated user | GET |
+| /shift/summary | Lists total hours, minutes for authenticated user (employee) | GET |
+| /shift | Creates a new shift resource | POST |
+| /shifts/update/{id} | Updates a shift resource with a supplied id | PUT |
 
 ## Requirements
 
